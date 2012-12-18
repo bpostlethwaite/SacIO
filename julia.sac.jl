@@ -5,12 +5,12 @@
 byte = 8
 wrdsize = 32
 
-type header
+type Header
   npts::Int32
 end
 
-type sac
-  hdr::header
+type Sac
+  hdr::Header
   data1::Array{Float32,1}
 end
 
@@ -29,19 +29,16 @@ function readsac(fstream)
 
 end
 
-file = "test/z.sac"
-println( "Reading $file" )
-const fstream = open(file)
-
-
-close(fstream)
 
 
 #local h::header
-h = header(npts)
+#h = header(npts)
+#
+#s = sac(h, data)
+#println("$(s.data1)")
 
-s = sac(h, data)
-println("$(s.data1)")
+
+
 # delta
 # depmin
 # depmax
