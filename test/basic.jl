@@ -37,10 +37,8 @@ function readsac(fstream)
     # Read in header information
     floatData = read(fstream, Float32, 70)
     intData = read(fstream, Int32, 40)
-    charData = read(fstream, Char, 192)
-    println(charData)
+    charData = read(fstream, Int32, 192)
 
-    println(typeof(charData))
     # Build dictionaries and merge
     d = Dict{ASCIIString, Any}(133)
     fd = { floatKey[i] => floatData[i] for i = 1:length(floatKey) }
@@ -73,7 +71,8 @@ fstream = open(file)
 d = readsac(fstream)
 close(fstream)
 println( d["npts"] )
-println(d["knetwk"], " is ", typeof(string(join(d["knetwk"]))) )
+println( d["delta"] )
+println(d["knetwk"])
 println( typeof(d) )
 
 

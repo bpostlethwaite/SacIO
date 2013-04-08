@@ -1,39 +1,41 @@
 f = open("char.sac", "w")
 
-a = Array(Int32, 6)
-a[1:6] = [12345,23456,34567,45678,56789,67890]
-for i in a
-    write(f, a)
-end
-close(f)
 
-f = open("char.sac")
-ints = read(f, Int32, length(a))
+# fa = Array(Float32, 6)
+# fa[1:6] = [1.2345, 2.3456, 3.4567, 45.678, 5.6789, 6.7890]
+# for i in fa
+#     write(f, i)
+# end
 
-@assert a == ints
+# ia = Array(Int32, 6)
+# ia[1:6] = [12345, 23456, 34567, 45678, 56789, 67890]
+# for i in ia
+#     write(f, i)
+# end
 
-close(f)
+ca = (join(["HELLO","BOUGH","SPOOK","PINTS","TRUSK"]))
+println(ca)
+println(ints(ca))
+write(f, int(ca) )
 
-
-
-f = open("char.sac", "w")
-
-a = Array(ASCIIString, 5)
-
-a = chars(join(["HELLO","BOUGH","SPOOK","PINTS","TRUSK"]))
-
-for i in a
-    write(f, a)
-end
 
 close(f)
 
 f = open("char.sac")
 
-c = read(f, Char, length(a))
+# floatdata = read(f, Float32, length(fa) )
+# println(length(fa))
+# println(floatdata)
 
-println(c)
 
-@assert a == c
+# intdata = read(f, Int32, length(ia) )
+# println(length(ia))
+# println(intdata)
 
-close(f)
+chardata = read(f, Char, length(ca) )
+
+println( chardata )
+
+# @assert floatdata == fa
+# @assert intdata == ia
+@assert chardata == ca

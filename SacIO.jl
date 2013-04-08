@@ -44,20 +44,19 @@ function readsac(fstream)
     # Read in header information
     floatData = read(fstream, Float32, 70)
     intData = read(fstream, Int32, 40)
-    charData = read(fstream, Char, 192)
+    charData = read(fstream, Uint8, 192)
 
-    println(typeof(charData))
     # Build dictionaries and merge
-    d = Dict{ASCIIString, Any}(133)
+    d = Dict{Any, Any}()
     fd = { floatKey[i] => floatData[i] for i = 1:length(floatKey) }
     id = { intKey[i] => intData[i] for i = 1:length(intKey) }
     j = 1
     for i = 1:length(charKey)
         if i == 2
-            d[ charKey[i] ] = string(charData[j : j + 15])
+            d[ charKey[i] ] = ascii(charData[j : j + 15])
             j += 16
         else
-            d[ charKey[i] ] = string(charData[j : j + 7])
+            d[ charKey[i] ] = ascii(charData[j : j + 7])
             j += 8
         end
     end

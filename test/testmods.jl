@@ -48,7 +48,3 @@ println(length(floatKey) + length(intKey) + length(charKey))
 
 show( d )
 println(typeof(d))
-
-j = 0
-j += 1
-println(j)

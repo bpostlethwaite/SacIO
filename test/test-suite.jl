@@ -1,5 +1,7 @@
 include("../julia.sac.jl")
+
 import Base.*
+
 macro testblock(testname)
     println("--- --- ---")
     println("Testing $testname")
@@ -60,6 +62,3 @@ begin
     local const fstream = open(file)
     close(fstream)
 end
-
-
-
